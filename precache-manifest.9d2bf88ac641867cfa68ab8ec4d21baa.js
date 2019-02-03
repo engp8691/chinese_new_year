@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/chinese_new_year/static/css/main.7c4e3147.chunk.css"
   },
   {
-    "revision": "55f3911c282073f6a084c49d63ea2b2a",
+    "revision": "5c583c893ab8fe248b303371fc0e5c50",
     "url": "/chinese_new_year/index.html"
   }
 ];
