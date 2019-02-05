@@ -6,7 +6,7 @@ import Celebrate from './Celebrate';
 
 import './App.css';
 
-let maxNumber = 0;
+let maxNumber = 1;
 
 class Wrapper extends Component {
 	constructor(props){
@@ -44,27 +44,26 @@ class Wrapper extends Component {
 		}
 
 		if(this.props.numbers.luckyNumber === textContent){
-			let { dispatch } = this.props;
-			dispatch(toggleImage(true));
+			this.props.toggleImage(true);
 		}
 		this.setState({redNumber: textContent});
 	};
 
 	addNumber = (e) => {
-		let { dispatch } = this.props;
 		maxNumber++;
-    	dispatch(addNumber(maxNumber));
+    	this.props.addNumber(maxNumber);
 	}
 
 	removeNumber = (e) => {
-		let { dispatch } = this.props;
-		dispatch(removeNumber(maxNumber));
+		this.props.removeNumber(maxNumber);
 		if(maxNumber>0){
 			maxNumber--;
 		}
 	}
 
 	render() {
+		console.log(68, "rendering function");
+
 		const AllLinks = this.props.numbers.numbers.map((elem, index, array)=>{
 			let isSelected = false;
 			if(elem === this.state.redNumber){
@@ -100,7 +99,16 @@ class Wrapper extends Component {
 }
 
 const mapStateToProps = function(state, ownProps) {
-	return {...state, ...ownProps}
+	return {...state };
 }
 
-export default connect(mapStateToProps)(Wrapper);
+const mapDispatchToProps = function(dispatch, ownProps) {
+    return {
+		addNumber: (number) => dispatch(addNumber(number)),
+		removeNumber: (number) => dispatch(removeNumber(number)),
+        toggleImage: (flag) => dispatch(toggleImage(flag))
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Wrapper);
