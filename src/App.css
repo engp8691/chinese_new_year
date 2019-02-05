@@ -80,6 +80,18 @@ img {
     max-height: 100%;
 }
 
+button img {
+	max-width: 48px;
+	max-height: 48px;
+	transform: translate(0px, 20px);
+}
+
+.buttonImg{
+	max-width: 48px;
+	max-height: 48px;
+	transform: translate(0px, 20px);
+}
+
 .greetings{
 	margin: 20px;
 	padding: 20px;

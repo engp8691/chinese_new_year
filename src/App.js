@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import combinedReducer from './reducers'
 import Wrapper from './Wrapper';
+
+const store = createStore(combinedReducer)
 
 class App extends Component {
   render() {
-  	let myArray = [1,2,3,4,5,6,7,8,9,10];
     return (
       <div className="App">
-	  	<Wrapper numbers={myArray}/>
+			<Provider store={store}>
+			  	<Wrapper />
+			</Provider>
       </div>
     );
   }

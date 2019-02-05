@@ -1,10 +1,19 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import { toggleImage, restartGame } from './actions';
+
 import './App.css';
 
+const mapStateToProps = function(state, ownProps) {
+	console.log(5, state, ownProps);
+	return {...state, ...ownProps}
+}
+
 class Celebrate extends Component {
-	constructor(props){
-		super(props);
-		this.state={display: true};
+	hanleClick = (e) => {
+		let { dispatch } = this.props;
+		dispatch(toggleImage(false));
+		dispatch(restartGame());
 	}
 
 	render() {
@@ -16,14 +25,14 @@ class Celebrate extends Component {
 		if(!this.props.display){
 			return null;
 		}else{
-			if(this.state.display){
+			if(this.props.display){
 				return (
 					<Fragment>
 						<div className="hover_bkgr_fricc">
 							<span className="helper"></span>
 							<div>
-								<div className="popupCloseButton" onClick={this.props.hanleClick}>X</div>
-								<div><img src={img_url} onClick={this.props.hanleClick} alt=""></img></div>
+								<div className="popupCloseButton" onClick={this.hanleClick}>X</div>
+								<div><img src={img_url} onClick={this.hanleClick} alt=""></img></div>
 							</div>
 						</div>
 					</Fragment>
@@ -35,4 +44,5 @@ class Celebrate extends Component {
 	}
 }
 
-export default Celebrate;
+export default connect(mapStateToProps)(Celebrate);
+
