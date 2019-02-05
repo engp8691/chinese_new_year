@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/chinese_new_year/precache-manifest.9d2bf88ac641867cfa68ab8ec4d21baa.js"
+  "/chinese_new_year/precache-manifest.d92a1dc05e7649085d1270a403b35c2a.js"
 );
 
 workbox.clientsClaim();
