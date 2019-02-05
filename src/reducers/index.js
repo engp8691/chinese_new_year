@@ -1,7 +1,7 @@
 import { AllActions } from '../actions';
 import { combineReducers } from 'redux';
 
-const numbers = (state = {numbers: [], maxNumber: 0, luckyNumber: 0}, action) => {
+const numbers = (state = {numbers: [1], maxNumber: 1, luckyNumber: 1}, action) => {
 	if(isNaN(action.number)){
 		return state;
 	}
